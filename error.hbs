@@ -13,6 +13,7 @@
     {{!-- Outputs important meta data and settings, should always be in <head> --}}
 
 </head>
+
 <body class="{{body_class}}">
 <div class="gh-viewport">
 
@@ -27,7 +28,7 @@
                     {{@site.title}}
                 {{/if}}
             </a>
-            <a class="gh-burger" role="button" aria-label="menu">
+            <a class="gh-burger" role="button">
                 <div class="gh-burger-box">
                     <div class="gh-burger-inner"></div>
                 </div>
@@ -38,14 +39,13 @@
         </div>
         <div class="gh-head-actions">
             <div class="gh-head-actions-list">
-                {{search}}
-                {{#if @site.members_enabled}}
-                    {{^if @member}}
-                    <a class="gh-button" href="{{@site.signup_url}}">Subscribe</a>
-                    {{else}}
-                    <a class="gh-button" href="#/portal/account">Account</a>
-                    {{/if}}
+                {{#if @site.facebook}}
+                <a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
                 {{/if}}
+                {{#if @site.twitter}}
+                <a href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+                {{/if}}
+                <a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
             </div>
         </div>
     </nav>
@@ -53,8 +53,37 @@
 
 <main class="gh-main">
 
-    {{{body}}}
-    {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
+    <section class="gh-page gh-error">
+        <div class="gh-container">
+
+            <section class="gh-error-content">
+
+                <h1 class="gh-error-code">{{statusCode}}</h1>
+                <p class="gh-error-description">{{message}}</p>
+                <p class="gh-error-link"><a href="{{@site.url}}">Go to the front page →</a></p>
+
+                {{#if errorDetails}}
+                <section class="gh-error-stack">
+                    <h4>Theme errors:</h4>
+                    <ul class="gh-error-stack-list">
+                        {{#foreach errorDetails}}
+                        <li>
+                            <h5 class="gh-error-stack-function">{{{rule}}}</h5>
+
+                            {{#foreach failures}}
+                            <span class="gh-error-stack-file"><strong>Ref:</strong> {{ref}}</span><br>
+                            <span class="gh-error-stack-file"><strong>Message:</strong> {{message}}</span>
+                            {{/foreach}}
+                        </li>
+                        {{/foreach}}
+                    </ul>
+                </section>
+                {{/if}}
+
+            </section>
+
+        </div>
+    </section>
 
 </main>
 
