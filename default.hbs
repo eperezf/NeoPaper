@@ -11,10 +11,17 @@
 </head>
 <body class="{{body_class}} bg-slate-100">
 <header class="fixed inset-x-0 top-0 w-full">
-	<div class="bg-black/80 border border-slate-950 h-20 md:m-2 p-3 md:rounded-lg shadow-md backdrop-blur-lg backdrop-contrast-150 transition transition-all">
-		<div class="xl:mx-auto h-full max-w-screen-xl">
+	<div class="bg-black/80 border border-slate-950 h-20 md:m-2 p-3 md:rounded-lg shadow-md backdrop-blur-lg backdrop-contrast-150 backdrop-saturate-150 transition transition-all">
+		<div class="xl:mx-auto h-full max-w-screen-xl container flex">
 			<img src="{{@site.logo}}" alt="{{@site.title}}" class="h-full">
+			<div class="grow flex mx-4">
+				{{navigation}}
+			</div>
+			<div>
+				RRSS
+			</div>
 		</div>
+
 	</div>
 </header>
 
