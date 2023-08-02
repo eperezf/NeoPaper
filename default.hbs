@@ -5,6 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{asset "built/index.css"}}" />
   <script src="{{asset "built/index.js"}}" defer></script>
+
+	<link href="{{asset 'css/fontawesome/css/fontawesome.css'}}" rel="stylesheet">
+  <link href="{{asset 'css/fontawesome/css/brands.css'}}" rel="stylesheet">
+  <link href="{{asset 'css/fontawesome/css/solid.css'}}" rel="stylesheet">
 	<title>{{meta_title}}</title>
 	<!--Ghost Head-->
 	{{ghost_head}}
@@ -14,12 +18,22 @@
 	<div class="bg-black/80 border border-slate-950 h-20 md:m-2 p-3 md:rounded-lg shadow-md backdrop-blur-lg backdrop-contrast-150 backdrop-saturate-150 transition transition-all">
 		<div class="xl:mx-auto h-full max-w-screen-xl container flex">
 			<img src="{{@site.logo}}" alt="{{@site.title}}" class="h-full">
-			<div class="grow flex mx-4">
+			<div class="grow xl:flex hidden mx-4">
 				{{navigation}}
 			</div>
-			<div>
-				RRSS
+			<div class="grow xl:flex hidden mx-4 text-gray-100 self-center space-x-4 justify-end">
+				<a href="" class="fa-solid fa-envelope"></a>
+				<a href="" class="fa-brands fa-facebook-f"></a>
+				<a href="" class="fa-brands fa-twitter"></a>
+				<a href="" class="fa-brands fa-instagram"></a>
+				<a href="" class="fa-brands fa-youtube"></a>
+				<a href="" class="fa-brands fa-tiktok"></a>
+				<a href="" class="fa-brands fa-telegram"></a>
+				<a href="" class="fa-solid fa-rss"></a>
+				<a href="" class="fa-solid fa-moon"></a>
+				<a href="" class="fa-solid fa-magnifying-glass"></a>
 			</div>
+			<div class="grow xl:hidden flex self-center justify-end gh-burger">SANDWICH</div>
 		</div>
 
 	</div>
