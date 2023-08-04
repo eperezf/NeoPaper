@@ -1,75 +1,52 @@
 <!DOCTYPE html>
 <html lang="{{@site.locale}}">
 <head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{asset "built/index.css"}}" />
+  <script src="{{asset "built/index.js"}}" defer></script>
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{asset "built/index.css"}}" />
-    <script src="{{asset "built/index.js"}}" defer></script>
-
-    <title>{{meta_title}}</title>
-
-    {{ghost_head}}
-    {{!-- Outputs important meta data and settings, should always be in <head> --}}
-
+	<link href="{{asset 'css/fontawesome/css/fontawesome.css'}}" rel="stylesheet">
+  <link href="{{asset 'css/fontawesome/css/brands.css'}}" rel="stylesheet">
+  <link href="{{asset 'css/fontawesome/css/solid.css'}}" rel="stylesheet">
+	<title>{{meta_title}}</title>
+	<!--Ghost Head-->
+	{{ghost_head}}
 </head>
-<body class="{{body_class}}">
-<div class="gh-viewport">
-
-<header id="gh-head" class="gh-head">
-    <nav class="gh-head-inner gh-container">
-
-        <div class="gh-head-brand">
-            <a class="gh-head-logo" href="{{@site.url}}">
-                {{#if @site.logo}}
-                    <img src="{{@site.logo}}" alt="{{@site.title}}" />
-                {{else}}
-                    {{@site.title}}
-                {{/if}}
-            </a>
-            <a class="gh-burger" role="button" aria-label="menu">
-                <div class="gh-burger-box">
-                    <div class="gh-burger-inner"></div>
-                </div>
-            </a>
-        </div>
-        <div class="gh-head-menu">
-            {{navigation}}
-        </div>
-        <div class="gh-head-actions">
-            <div class="gh-head-actions-list">
-                {{search}}
-                {{#if @site.members_enabled}}
-                    {{^if @member}}
-                    <a class="gh-button" href="{{@site.signup_url}}">Subscribe</a>
-                    {{else}}
-                    <a class="gh-button" href="#/portal/account">Account</a>
-                    {{/if}}
-                {{/if}}
-            </div>
-        </div>
-    </nav>
+<body class="{{body_class}} bg-slate-100">
+<header class="fixed inset-x-0 top-0 w-full">
+	<div class="bg-black/80 border border-slate-950 h-20 md:m-2 p-3 md:rounded-lg shadow-md backdrop-blur-lg backdrop-contrast-150 backdrop-saturate-150 transition transition-all">
+		<div class="xl:mx-auto h-full max-w-screen-xl container flex">
+			<a href="/"><img src="{{@site.logo}}" alt="{{@site.title}}" class="h-full"></a>
+			<div class="grow xl:flex hidden mx-4">
+				{{navigation}}
+			</div>
+			<div class="grow xl:flex hidden mx-4 text-gray-100 self-center space-x-4 justify-end">
+				<a href="" class="fa-solid fa-envelope"></a>
+				<a href="" class="fa-brands fa-facebook-f"></a>
+				<a href="" class="fa-brands fa-twitter"></a>
+				<a href="" class="fa-brands fa-instagram"></a>
+				<a href="" class="fa-brands fa-youtube"></a>
+				<a href="" class="fa-brands fa-tiktok"></a>
+				<a href="" class="fa-brands fa-telegram"></a>
+				<a href="" class="fa-solid fa-rss"></a>
+				<i class="fa-solid fa-magnifying-glass" data-ghost-search></i>
+			</div>
+			<div class="grow xl:hidden flex gap-4 self-center justify-end text-gray-100 text-2xl mr-2">
+				<i class="fa-solid fa-search gh-search" data-ghost-search></i>
+				<i class="fa-solid fa-bars burger"></i>
+			</div>
+		</div>
+	</div>
+	<div class="burger-menu xl:hidden hidden transition transition-all p-1 md:m-2 md:rounded-lg bg-black/80 border border-slate-950 shadow-md backdrop-blur-lg backdrop-contrast-150 backdrop-saturate-150 transition transition-all">
+		{{> "vertNavigation"}}
+	</div>
 </header>
 
-<main class="gh-main">
 
-    {{{body}}}
-    {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
-
+<main class="">
+	{{{body}}}
 </main>
-
-<footer class="gh-foot">
-    <div class="gh-container">
-        <div class="gh-foot-menu">
-            {{navigation type="secondary"}}
-        </div>
-        <div class="gh-foot-meta">
-            Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
-        </div>
-    </div>
-</footer>
-
-</div>
 
 {{!-- <foot> --}}
 {{ghost_foot}}
