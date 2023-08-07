@@ -6,29 +6,37 @@
 	{{#get "posts" limit="4" filter="featured:true" include="tags,authors"}}
 		{{#foreach posts limit="1"}}
 			<article class="col-span-3 md:rounded-lg shadow hover:shadow-md relative transition transition-all">
-				<div class="metadata absolute left p-2">
-					<div class="tag bg-slate-900/50 p-2 rounded-lg shadow-md">
+				<a href="{{url}}" class="absolute inset-0 bg-gradient-to-t from-black/80 md:rounded-lg"></a>
+				<div class="absolute inset-x-0 bottom-0 xl:p-8 p-4 pointer-events-none">
+					<div class="mb-3 text-sm">{{reading_time minute="1 minuto de lectura" minutes="% minutos de lectura"}}</div>
+					<h2 class="mb-3 xl:text-4xl text-lg font-bold">{{title}}</h2>
+					<div class="mb-3 text-sm">{{authors}} - {{date format='DD/MM/YYYY'}}</div>
+				</div>
+				<div class="absolute p-2">
+					<div class="tag bg-black/70 hover:underline decoration-purple-500 border border-slate-950 p-2 rounded-lg shadow-md">
 						{{tags limit="1"}}
 					</div>
-					
 				</div>
 				<div class="imgmask">
-					<img src="{{img_url feature_image size="l"}}" alt="" class="left w-full h-full md:rounded-lg object-cover object-center w-full xl:h-[32rem] md:aspect-video aspect-square transition transition-all md:border border-slate-500/50">
+					<img src="{{img_url feature_image size="l"}}" alt="" class="left w-full h-full md:rounded-lg object-cover object-center w-full xl:h-[32rem] md:aspect-video aspect-square">
 				</div>
-				
 			</article>
 		{{/foreach }}
 		{{#foreach posts from="2"}}
 			<article class="xl:col-span-1 col-span-3 md:rounded-lg shadow hover:shadow-md relative transition transition-all ">
-				<div class="metadata absolute left p-2">
-					<div class="tag bg-slate-900/70 p-2 rounded-lg shadow-md">
+				<a href="{{url}}" class="absolute inset-0 bg-gradient-to-t from-black/80 md:rounded-lg"></a>
+				<div class="absolute inset-x-0 bottom-0 p-4 pointer-events-none">
+					<div class="mb-3 text-sm">{{reading_time minute="1 minuto de lectura" minutes="% minutos de lectura"}}</div>
+					<h2 class="mb-3 md:text-2xl text-lg font-bold">{{title}}</h2>
+					<div class="mb-3 text-sm">{{authors}} - {{date format='DD/MM/YYYY'}}</div>
+				</div>
+				<div class="absolute p-2">
+					<div class="tag bg-black/70 hover:underline decoration-purple-500 border border-slate-950 p-2 rounded-lg shadow-md">
 						{{tags limit="1"}}
 					</div>
 				</div>
 				<div class="imgmask">
-					<a href="/">
-						<img src="{{img_url feature_image size="l"}}" alt="" class="left w-full h-full md:rounded-lg object-cover object-center w-full xl:h-[20rem] md:aspect-video aspect-square transition transition-all md:border border-slate-500/50">
-					</a>
+						<img src="{{img_url feature_image size="l"}}" alt="" class="left w-full h-full md:rounded-lg object-cover object-center w-full xl:h-[20rem] md:aspect-video aspect-square">
 				</div>
 				
 			</article>
