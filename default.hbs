@@ -14,7 +14,7 @@
 	{{ghost_head}}
 </head>
 <body class="{{body_class}} bg-slate-100">
-<header class="fixed inset-x-0 top-0 w-full">
+<header class="fixed inset-x-0 top-0 w-full z-40">
 	<div class="bg-black/80 border border-slate-950 h-20 md:m-2 p-3 md:rounded-lg shadow-md backdrop-blur-lg backdrop-contrast-150 backdrop-saturate-150 transition transition-all">
 		<div class="xl:mx-auto h-full max-w-screen-xl container flex">
 			<a href="/"><img src="{{@site.logo}}" alt="{{@site.title}}" class="h-full"></a>
@@ -43,7 +43,7 @@
 	</div>
 </header>
 
-<main class="md:mt-28 mt-24 mx-2 transition transition-all xl:mx-auto max-w-screen-xl container">
+<main class="md:mt-28 mt-24 transition transition-all xl:mx-auto max-w-screen-xl container">
 	{{{body}}}
 </main>
 
