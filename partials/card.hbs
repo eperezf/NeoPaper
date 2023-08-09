@@ -1,0 +1,15 @@
+{{!--
+Re-usable card for linking to posts
+--}}
+
+<article class="relative mb-4 pr-2 bg-gray-200/50 shadow hover:shadow-md rounded-lg block flex gap-2 h-40 transition transition-all border border-gray-300 box-content">
+	<div class="h-40 w-52 flex-none">
+		<a href="{{url}}"><img src="{{img_url feature_image size="l"}}" class="h-40 w-52 min-w-full object-cover object-center rounded-l-lg border-r border-gray-300"></a>
+	</div>
+	<div class="h-40 p-2 flex flex-col justify-around">
+		<a href="{{url}}"><h2 class="text-xl text-bold">{{title}}</h2></a>
+		<div class="text-sm">{{tags limit="1"}} - {{date format='DD/MM/YYYY'}} - 0 Comentarios - {{reading_time minute="1 minuto de lectura" minutes="% minutos de lectura"}}</div>
+		<div class="text-sm">{{excerpt}}</div>
+	</div>
+
+</article>
